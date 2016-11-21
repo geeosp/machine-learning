@@ -48,8 +48,16 @@ countF+countI+countM
 %sum(ndata)
 %so confirmando que ta tudo ok, a soma bateu, e os dados tao normalizados
 %no geral.
+k = 10% num of folds
+ndata(:, 1);
+C = cvpartition(ndata(:,1),'KFold',k)
 
 
+for a= 1:C.NumTestSets
+    % os conjuntos de teste e treinamento 
+    test = ndata(C.test(a),:);
+    train = ndata(C.training(a), :);
+end
 
 
 
