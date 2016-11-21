@@ -1,0 +1,4 @@
+Tratando os arquivos
+F --> 001
+M --> 010
+I --> 100

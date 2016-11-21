@@ -1,0 +1,24 @@
+clc;
+mdata =(importdata('abalone.data'));
+data = mdata.data;
+classes = mdata.rowheaders;
+x = mean(data)
+countc = size(data, 2);
+countl = size(data, 1);
+for i=1:countc
+    c = data(:,i);
+    s = sum (c);
+    data(:, i) = c*(1/s);
+    
+end
+sum(data);
+ndata = zeros(countl, 1+countc);
+for i=1:countl
+   w
+    
+    
+end
+
+
+
+
