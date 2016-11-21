@@ -1,7 +1,7 @@
 clc;
 mdata =(importdata('abalone.data'));
 data = mdata.data;
-classes = mdata.rowheaders;
+classes = mdata.textdata;
 x = mean(data)
 countc = size(data, 2);
 countl = size(data, 1);
@@ -11,13 +11,41 @@ for i=1:countc
     data(:, i) = c*(1/s);
     
 end
-sum(data);
-ndata = zeros(countl, 1+countc);
+sum(data)
+ndata = zeros(countl,1);
+F = [0, countc]
+M= [0, countc]
+I= [0, countc]
 for i=1:countl
-   w
-    
-    
+   ndata(i, 2:countc+1) = data(i,1:countc);
+
+    if(strcmp(classes{i},'F'))
+       ndata(i,1) = 1;
+     
+   elseif(strcmp(classes{i},'M'))
+        ndata(i,1) = 2;
+   elseif(strcmp(classes{i},'F'))
+        ndata(i,1) = 3;
+
+    end
+ndata(i)    
 end
+sum(ndata)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
