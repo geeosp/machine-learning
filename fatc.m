@@ -115,14 +115,7 @@ for a= 1:1% C.NumTestSets
              
          end
      confusionMatrix(min(indi, testClasses(i)), max(indi, testClasses(i))) = confusionMatrix(min(indi, testClasses(i)), max(indi, testClasses(i))) +1
- 
-       
-            
-      
-        
- 
-            
-            
+   
    
         
         
