@@ -44,7 +44,7 @@ for a= 1:C.NumTestSets
     
     testData = ndata(C.test(a),2:end);
     testClasses = ndata(C.test(a), 1);
-     testSize = size(testData ,1);
+    testSize = size(testData ,1);
     trainData = ndata(C.training(a), 2:end);
     trainClasses = ndata(C.training(a), 1);
     
@@ -52,13 +52,17 @@ for a= 1:C.NumTestSets
     
     
     [class, acuracy(a), confusion] = mvnpdfClassificator( testData, testClasses,trainData, trainClasses );
-    
+ 
    
 end 
 
 %[h, pvalue, ci] =ztest(mean(acuracy), mean(acuracy), std(acuracy))
 
-
+%Teste de hipotesi
+x = acuracy; 
+SEM = std(x)/sqrt(length(x))     % Standard Error
+ts = tinv([0.025  0.975],length(x)-1)% T-Score
+CI = mean(x) + ts*SEM% Intervalo de 95% de confiança
 
 
 
