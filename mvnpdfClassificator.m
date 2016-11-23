@@ -1,9 +1,9 @@
-function [ classificated, acuracy, confusionMatrix ] = mvnpdfClassificator( testData, testClasses,trainData, trainClasses )
+function [ classificated, erros, confusionMatrix ] = mvnpdfClassificator( testData, testClasses,trainData, trainClasses )
 
 
 
 
-trainSize = size(trainData, 1);
+%trainSize = size(trainData, 1);
 testSize = size(testData ,1);
 countc = size(testData, 2);
 pw = zeros(1, 3);
@@ -60,7 +60,7 @@ for i=1: testSize;
     
 end
 erros = erros/testSize;
-acuracy = 1-erros;
+
 %t1 = mvnpdf(testData, ui, )
 
 
