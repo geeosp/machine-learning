@@ -38,7 +38,7 @@ k = 100;% num of folds
 
 
 C = cvpartition(ndata(:,1),'KFold',k);
-errors = zeros(C.NumTestSets,1);
+bayeserrors = zeros(C.NumTestSets,1);
 for a= 1:C.NumTestSets
     % os conjuntos de teste e treinamento
     
@@ -51,7 +51,7 @@ for a= 1:C.NumTestSets
     trainSize = size(trainData, 1);
     
     
-    [class, errors(a), confusion] = mvnpdfClassificator( testData, testClasses,trainData, trainClasses );
+    [class, bayeserrors(a), confusion] = mvnpdfClassificator( testData, testClasses,trainData, trainClasses );
  
    
 end 
@@ -59,7 +59,7 @@ end
 %[h, pvalue, ci] =ztest(mean(acuracy), mean(acuracy), std(acuracy))
 
 %Teste de hipotesi
-x = errors; 
+x = bayeserrors; 
 SEM = std(x)/sqrt(length(x))     % Standard Error
 ts = tinv([0.025  0.975],length(x)-1)% T-Score
 CI = mean(x) + ts*SEM% Intervalo de 95% de confiança
