@@ -1,1 +1,0 @@
-[a] = MyFunction(2)
